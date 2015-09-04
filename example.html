@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data Binder</title>
+  <script src="data-binder.js"></script>
+</head>
+<body>
+player.name = <span id="name"></span><br>
+player.str =  <span id="str"></span><br>
+player.end =  <span id="end"></span><br>
+<p style="background-color: lightblue;">
+  var timer = setInterval(function(){<br>
+    <span style="text-indent: 10px;">player.str = Math.round(Math.random() * 10); </span><br>
+    player.end = Math.round(Math.random() * 10);<br>
+  }); 
+</p>
+</body>
+<script>
+  function Player() {
+    bindProperty(this, 'name', "Conan", [document.getElementById('name')]);
+    bindProperty(this, 'str', 0, [document.getElementById('str')]);
+    bindProperty(this, 'end', 0, [document.getElementById('end')]);
+  }
+  var player = new Player();
+  var timer = setInterval(function(){
+    player.str = Math.round(Math.random() * 10);
+    player.end = Math.round(Math.random() * 10);
+  }, 1000);
+</script>
+</html>
